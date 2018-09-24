@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: apiuser
+      POSTGRES_PASSWORD: testpass
+      POSTGRES_DB: ecoapi_dev
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    restart: always
+  api:
+    build: .
+    command: puma
+    ports:
+      - 9292:9292
+    links:
+      - db
+    volumes:
+      - .:/ecoapi
