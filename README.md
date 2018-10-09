@@ -1,2 +1,2 @@
 # ecoapi
-Rails api -- backend for any personal websites
+Rails api -- potential backend for any personal websites
